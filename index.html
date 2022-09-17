@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Conversational Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <form id="sample-conversation">
+      <cf-robot-message
+        cf-questions="Welcome to the chatatron superbot 9000 🔥"
+      />
+
+      <fieldset
+        cf-questions="Do you want an overview of what I can do?"
+        cf-input-placeholder="Let me know..."
+      >
+        <label>
+          Yes
+          <input type="radio" name="showIntro" value="yes" />
+        </label>
+
+        <label>
+          No thanks
+          <input type="radio" name="showIntro" value="no" />
+        </label>
+      </fieldset>
+
+      <cf-robot-message
+        cf-questions="My name is Taxie, I am like super smart and can do your taxes lol 🤖🤖"
+        cf-conditional-showIntro="yes"
+      />
+
+      <input name="firstName" cf-questions="What is your first name?" />
+
+      <cf-robot-message
+        cf-questions="no charles ❌"
+        cf-conditional-firstName="charles"
+      />
+
+      <input name="lastName" cf-questions="What is your surname?" />
+      <input
+        name="email"
+        cf-questions="Great {firstName}, could you tell me your email?"
+      />
+    </form>
+
+    <script src="conversation.js"></script>
+  </body>
+</html>
